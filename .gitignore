@@ -23,6 +23,18 @@ MANIFEST
 
 # Virtual environments
 venv/
+ENV/
+env/
+
+# IDEs
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+venv/
 env/
 ENV/
 
