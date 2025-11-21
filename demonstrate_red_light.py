@@ -28,17 +28,24 @@ def run_tests(version_name, use_protection=True):
     print("=" * 70)
     print()
     
-    # Backup original file
+    # Backup original file (remove old backup if exists)
+    backup_file = 'safe_division_backup.py'
+    if os.path.exists(backup_file):
+        os.remove(backup_file)
     if os.path.exists('safe_division.py'):
-        shutil.copy('safe_division.py', 'safe_division_backup.py')
+        shutil.copy('safe_division.py', backup_file)
     
     try:
         if not use_protection:
             # Temporarily replace with no-protection version
             if os.path.exists('safe_division_no_protection.py'):
-                shutil.copy('safe_division_no_protection.py', 'safe_division.py')
-                print("⚠️  已暫時移除防呆保護機制")
-                print("⚠️  Division by zero protection temporarily removed\n")
+                try:
+                    shutil.copy('safe_division_no_protection.py', 'safe_division.py')
+                    print("⚠️  已暫時移除防呆保護機制")
+                    print("⚠️  Division by zero protection temporarily removed\n")
+                except (IOError, OSError) as e:
+                    print(f"❌ Error replacing file: {e}")
+                    return False
         
         # Run the tests
         result = subprocess.run(
@@ -60,9 +67,17 @@ def run_tests(version_name, use_protection=True):
         return result.returncode == 0
         
     finally:
-        # Restore original file
-        if os.path.exists('safe_division_backup.py'):
-            shutil.move('safe_division_backup.py', 'safe_division.py')
+        # Restore original file safely
+        backup_file = 'safe_division_backup.py'
+        if os.path.exists(backup_file):
+            try:
+                # Remove current file if it exists
+                if os.path.exists('safe_division.py'):
+                    os.remove('safe_division.py')
+                shutil.move(backup_file, 'safe_division.py')
+            except (IOError, OSError) as e:
+                print(f"⚠️  Warning: Could not restore original file: {e}")
+                print(f"   Backup is at: {backup_file}")
 
 
 def main():

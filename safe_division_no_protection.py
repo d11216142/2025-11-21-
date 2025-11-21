@@ -1,10 +1,17 @@
 """
 safe_division module WITHOUT division by zero protection.
 
-This version is used to demonstrate the RED LIGHT scenario.
-When you run tests with this version, they will FAIL.
+⚠️ WARNING ⚠️
+THIS FILE IS FOR DEMONSTRATION PURPOSES ONLY!
+DO NOT USE THIS IN PRODUCTION CODE!
 
-DO NOT USE THIS IN PRODUCTION - This is for demonstration purposes only!
+This version is used to demonstrate the RED LIGHT scenario.
+When you run tests with this version, they will FAIL with ZeroDivisionError.
+
+This file intentionally removes the fail-safe mechanism to show what happens
+when proper error handling is not implemented.
+
+FOR PRODUCTION USE: Use safe_division.py instead, which has proper protection.
 """
 
 
