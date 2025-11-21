@@ -21,6 +21,7 @@ def safe_division(a, b):
         >>> safe_division(10, 2)
         5.0
         >>> safe_division(10, 0)
+        None
         >>> safe_division(-10, 2)
         -5.0
     """

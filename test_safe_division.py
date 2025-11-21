@@ -41,7 +41,7 @@ class TestSafeDivision(unittest.TestCase):
     def test_division_with_floats(self):
         """Test division with floating point numbers."""
         self.assertAlmostEqual(safe_division(7, 2), 3.5)
-        self.assertAlmostEqual(safe_division(1, 3), 0.3333333333333333)
+        self.assertAlmostEqual(safe_division(1, 3), 1/3)
         self.assertAlmostEqual(safe_division(5.5, 2.5), 2.2)
     
     def test_division_with_large_numbers(self):
