@@ -59,11 +59,29 @@ python3 test_safe_division.py
 
 ## 任務三：觀察綠燈與紅燈結果 ✅
 
-### 執行示範
+### 快速開始
+
+有三種方式可以觀察綠燈與紅燈的測試結果：
+
+#### 方法 1：互動式示範（推薦）⭐
+
+```bash
+python3 demonstrate_red_light.py
+```
+
+這個腳本會自動切換有/無防呆保護的版本，讓你清楚看到綠燈和紅燈的差異。
+
+#### 方法 2：快速示範
 
 ```bash
 python3 test_results_demo.py
 ```
+
+快速展示兩種情境的測試結果，無需互動。
+
+#### 方法 3：手動測試
+
+查看 [如何觀察綠燈與紅燈.md](./如何觀察綠燈與紅燈.md) 了解詳細步驟。
 
 ### 綠燈（通過）🟢
 
@@ -120,10 +138,13 @@ python3 test_results_demo.py
 
 ```
 .
-├── README.md                 # 專案說明文件
-├── safe_division.py          # 防呆函式實作
-├── test_safe_division.py     # 單元測試
-└── test_results_demo.py      # 綠燈/紅燈示範腳本
+├── README.md                      # 專案說明文件
+├── safe_division.py               # 防呆函式實作（有保護）✅
+├── safe_division_no_protection.py # 無保護版本（僅供示範）⚠️
+├── test_safe_division.py          # 單元測試
+├── test_results_demo.py           # 快速示範腳本
+├── demonstrate_red_light.py       # 互動式示範腳本（推薦）⭐
+└── 如何觀察綠燈與紅燈.md           # 詳細操作說明
 ```
 
 ## 環境需求
